@@ -555,7 +555,7 @@ class Policy:
         subject_ava = ava.copy()
 
         # make sure we don't assert both subject-id and pairwise-id if subject-id requirement is "any"
-        if self.metadata_store.subject_id_requirement_type(sp_entity_id) == "any":
+        if self.metadata_store and self.metadata_store.subject_id_requirement_type(sp_entity_id) == "any":
             subject_ava, required = self._subject_id_or_pairwise_id(subject_ava, required)
 
         # entity category restrictions
