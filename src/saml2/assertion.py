@@ -513,11 +513,7 @@ class Policy:
         # from required attributes and ava
         if subject_id and pairwise_id:
             if all(
-                [
-                    True
-                    for friendly_name in [subject_id["friendly_name"], pairwise_id["friendly_name"]]
-                    if friendly_name in ava
-                ]
+                [friendly_name in ava for friendly_name in [subject_id["friendly_name"], pairwise_id["friendly_name"]]]
             ):
                 required.pop(required.index(subject_id))
                 ava.pop(subject_id["friendly_name"])
